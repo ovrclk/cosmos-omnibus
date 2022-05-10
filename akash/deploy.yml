@@ -11,6 +11,10 @@ services:
       - MINIMUM_GAS_PRICES=0.025uakt
       - FASTSYNC_VERSION=v0
       - VALIDATE_GENESIS=0
+    params:
+      storage:
+        data:
+          mount: /root/.akash
     expose:
       - port: 26657
         as: 80
@@ -25,11 +29,15 @@ profiles:
     node:
       resources:
         cpu:
-          units: 2
+          units: 4
         memory:
-          size: 2Gi
+          size: 8Gi
         storage:
-          size: 120Gi
+          - size: 100Mi
+          - name: data
+            size: 400Gi
+            attributes:
+              persistent: true
   placement:
     dcloud:
       attributes:

@@ -123,6 +123,7 @@ See the [_examples](./_examples) directory for some common setups, including:
 
 - [Statesync](./_examples/statesync)
 - [Load Balanced RPC Nodes](./_examples/load-balanced-rpc-nodes)
+- [Validator and TMKMS](./_examples/validator-and-tmkms)
 - [Validator and Public Sentries](./_examples/validator-and-public-sentries)
 - [Validator with Private Sentries](./_examples/validator-and-private-sentries)
 - [Snapshot Backup](./_examples/snapshot_backup)

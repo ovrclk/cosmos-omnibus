@@ -6,24 +6,28 @@ services:
       context: ../
       args:
         PROJECT: nomic
-        VERSION: stakenet
+        VERSION: v3
         REPOSITORY: https://github.com/nomic-io/nomic
         NAMESPACE: TM
-        PROJECT_DIR: .nomic-stakenet
+        PROJECT_DIR: .nomic-stakenet-3
         BASE_IMAGE: rustlang/rust:nightly
         INSTALL_PACKAGES: build-essential libssl-dev pkg-config clang
-        BUILD_CMD: cargo install --path .
+        BUILD_CMD: cargo install --locked --path .
         BUILD_PATH: /usr/local/cargo/bin
-        INIT_CMD: nomic init
-        CONFIG_DIR: tendermint/config
+        PROJECT_DIR: .nomic-stakenet-3/tendermint
+        CONFIG_DIR: config
     ports:
       - '26656:26656'
       - '26657:26657'
       - '1317:1317'
     environment:
       - MONIKER=node_1
-      - CHAIN_JSON=https://raw.githubusercontent.com/cosmos/chain-registry/master/nomic/chain.json
+      # - CHAIN_JSON=https://raw.githubusercontent.com/cosmos/chain-registry/master/nomic/chain.json
+      - CHAIN_ID=nomic-stakenet-3
+      - DOWNLOAD_GENESIS=0
+      - INIT_CONFIG=0
     env_file:
       - ../.env
     volumes:
-      - ./node-data:/root/.nomic-stakenet
+      - ./node-data:/root/.nomic-stakenet-3
+      # - ./orga-wallet:/root/.orga-wallet

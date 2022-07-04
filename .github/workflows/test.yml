@@ -9,7 +9,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - id: set-matrix
-        run: echo "::set-output name=matrix::$(find * -type f -name build.yml -not -path "nomic*" -not -path "terra*" | xargs dirname | sort | uniq | jq --raw-input . | jq -c --slurp .)"
+        run: echo "::set-output name=matrix::$(find * -type f -name build.yml -not -path "terra*" | xargs dirname | sort | uniq | jq --raw-input . | jq -c --slurp .)"
     outputs:
       matrix: ${{ steps.set-matrix.outputs.matrix }}
 

@@ -77,8 +77,8 @@ jobs:
             version: v2.0.2
           - project: lumnetwork
             version: v1.0.5
-          # - project: nomic
-          #   version: stakenet
+          - project: nomic
+            version: v3
           - project: omniflixhub
             version: v0.4.1
           - project: osmosis

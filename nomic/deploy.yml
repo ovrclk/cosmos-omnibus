@@ -3,10 +3,13 @@ version: "2.0"
 
 services:
   node:
-    image: ghcr.io/ovrclk/cosmos-omnibus:v0.2.3-nomic-stakenet
+    image: ghcr.io/ovrclk/cosmos-omnibus:v0.2.3-nomic-v3
     env:
       - MONIKER=node_1
-      - CHAIN_JSON=https://raw.githubusercontent.com/cosmos/chain-registry/master/nomic/chain.json
+      # - CHAIN_JSON=https://raw.githubusercontent.com/cosmos/chain-registry/master/nomic/chain.json
+      - CHAIN_ID=nomic-stakenet-3
+      - DOWNLOAD_GENESIS=0
+      - INIT_CONFIG=0
     expose:
       - port: 26657
         as: 80
